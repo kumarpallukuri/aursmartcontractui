@@ -1,0 +1,21 @@
+  <div class="btn-group dropdown pmd-dropdown pmd-user-info pr-3 pb-1 pt-1" dropdown>
+    <a id="button-animated" dropdownToggle class="btn-user dropdown-toggle media align-items-center clr"
+      aria-controls="dropdown-animated">
+     <!-- <div class="profileImage">{{ getCompanyFirstLetter() }}</div> -->
+      <div>{{this.username}}</div>
+      <span class="caret"></span>
+    </a>
+    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-logout" role="menu"
+      aria-labelledby="button-animated">
+      <li role="menuitem">
+        <a class="dropdown-item">Logout</a>
+      </li>
+    </ul>
+    <br />
+  </div>
+  <!-- <p-overlayPanel #zervoverlaypanel [dismissable]="true" [showCloseIcon]="true" id="tablerowoverlay"  >
+    <ng-template pTemplate >
+      {{overlayContent}}
+    </ng-template>
+  </p-overlayPanel> -->
+  

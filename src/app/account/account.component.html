@@ -1,0 +1,122 @@
+<!-- <div class="col-md-12 background">
+    <div class="row" style="height: 100%">
+      <div class="col-md-2 side-bg-clr">
+        <app-sidemenu></app-sidemenu>
+      </div> -->
+      <div class="col-md-12 content-extend">
+        <!-- <p-card styleClass="acc-card" >
+            <ng-template pTemplate="header">
+            <div class="p-grid p-jc-end">
+                <h4 class="font-bold mt-30 ml-1 mr-30"><b> Dahoboard</b></h4>
+                <app-header style="margin-left: auto;"></app-header>
+            </div>
+        </ng-template>
+    </p-card> -->
+    <h4 class="font-bold mt-30 ml-4 mr-30" style="position: absolute;"><b> Account</b></h4>
+    <app-header style="margin-left: auto; float: right;"></app-header>
+    <div class="p-col-12 pt-0 pb-0 ml-4 pr-4">
+        <p-divider></p-divider>
+      </div>
+    <p-card styleClass="acc-card" >
+        <div class="p-col-11">
+        <h3 class="header-box p-1">What are you looking for? Share Info to help us Provide the best deals for you</h3>
+        </div>
+                <ng-template pTemplate="content">
+                    <div class="p-grid p-field mt-5 ml-5">
+                        <div class="p-col-3 p-0">
+                            <h4>Loans</h4>
+                            <img src="assets/pexels-pixabay-534229.png"/>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" *ngFor="let item of loanType;let i=index">
+                                    <a data-bs-toggle="collapse" href="#collapse{{i}}" aria-expanded="false" aria-controls="collapse"
+                                    (click)="getBankNames(item)">{{item.type}}</a>
+                                    <div *ngIf="banksByLoanType" class="row">
+                                        <div class="col">
+                                          <div class="collapse multi-collapse" id="collapse{{i}}">
+                                              <p *ngFor="let bank of bankNames">
+                                                  <a (click)="openKYC()">{{bank}}</a></p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- <li class="list-group-item">A second item</li>
+                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">A fourth item</li>
+                                <li class="list-group-item">And a fifth one</li> -->
+                              </ul>
+                        </div>
+                        <div class="p-col-3">
+                            <h4>Investement</h4>
+                            <img src="assets/pexels-pixabay-534216.png"/>
+                        </div>
+                        <div class="p-col-3 p-0">
+                            <h4>Insurance</h4>
+                            <img src="assets/Placement_Area_ia.png"/>
+                
+                        </div>
+                        <div class="p-col-3">
+                            <h4>Credit Cards</h4>
+                            <img src="assets/Placement_Area.png"/>
+                
+                        </div>
+                        <!-- <div class="p-col-2">
+                            <h4>Credit Score</h4>
+                            <img src="assets/Placement_Area_h.png"/>
+                
+                        </div> -->
+                    </div>
+                </ng-template>
+                </p-card>
+
+        </div>
+      <!-- </dv>
+    </div>i -->
+
+
+<!-- <div class="p-grid">
+    <div class="p-col-8 header-box p-1">
+        <h3>What are you looking for? Share Info to help us Provide the best deals for you</h3>
+    </div>
+</div>
+<p-card>
+<ng-template pTemplate="content">
+    <div class="p-grid p-field">
+        <div class="p-col-2 p-0">
+            <h4>Loans</h4>
+            <img src="assets/pexels-pixabay-534229.png"/>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let item of loanType;let i=index">
+                    <a data-bs-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse"
+                    (click)="getBankNames(item)">{{item.type}}</a>
+                </li>
+                <div class="row">
+                    <div class="col">
+                      <div class="collapse multi-collapse" id="collapse">
+                          <p *ngFor="let bank of bankNames">{{bank}}</p>
+                      </div>
+                    </div>
+                </div>
+              </ul>
+        </div>
+        <div class="p-col-2">
+            <h4>Investement</h4>
+            <img src="assets/pexels-pixabay-534216.png"/>
+        </div>
+        <div class="p-col-2 p-0">
+            <h4>Insurance</h4>
+            <img src="assets/Placement_Area_ia.png"/>
+
+        </div>
+        <div class="p-col-2">
+            <h4>Credit Cards</h4>
+            <img src="assets/Placement_Area.png"/>
+
+        </div>
+        <div class="p-col-2">
+            <h4>Credit Score</h4>
+            <img src="assets/Placement_Area_h.png"/>
+
+        </div>
+    </div>
+</ng-template>
+</p-card> -->
