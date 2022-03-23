@@ -25,7 +25,13 @@ export class KycComponent implements OnInit {
   showPanStep1:boolean;
   showAdharStep2:boolean;
   showAdharStep3:boolean;
-
+  panNumber: any;
+  adhardetails: any;
+  bankDetails: any=[];
+  verifiedSuccessfully: boolean;
+  isPanverified: any;
+  isAdharVerified: any;
+  isBankDetailsVerified: any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -39,8 +45,7 @@ export class KycComponent implements OnInit {
     this.items = [
       { label: 'PAN'},
       { label: 'Aadhar' },
-      { label: 'Bank Details'},
-      { label: 'Review & Save'},
+      { label: 'Bank Details'}
     ];
     this.form = this.fb.group({
       panNUmber: ['', Validators.required]
@@ -59,9 +64,6 @@ export class KycComponent implements OnInit {
       case 2:
         this.showStep3BankDetails();
         break;
-        case 3:
-        // this.showReviewDetails();
-        break;
       default:
         break;
     }
@@ -71,12 +73,16 @@ export class KycComponent implements OnInit {
     this.activeIndex = 0;
     this.showPanStep1= true;
     this.showAdharStep2= false;
+    this.showAdharStep3= false;
+    this.verifiedSuccessfully = false;
   }
 
   showStep2Adhar() {
     this.activeIndex = 1;
     this.showPanStep1= false;
     this.showAdharStep2= true;
+    this.showAdharStep3= false;
+    this.verifiedSuccessfully = false;
   }
 
   showStep3BankDetails() {
@@ -86,9 +92,57 @@ export class KycComponent implements OnInit {
     this.showAdharStep3= true;
   }
 
+  getAdharDetails(adhardetails) {
+    this.adhardetails = adhardetails;
+  }
+
+  getBankDetails(bankInfo) {
+const banktype = {
+  "type": "link_current_account",
+  "bank_name": "icici_bank",
+  "bank_linking_details": {
+       "corp_id": "91212012912102",
+       "user_id": "01081202012"
+  },
+  bankInfo,
+  };
+  this.bankDetails.push(banktype)
+  this.saveKYC();
+}
   nextPage(stepNext: boolean) {
+    this.panNumber = this.f.panNUmber.value;
     if(stepNext) {
       this.stepperChanged(1);
     }
+  }
+
+  saveKYC(){
+    const username = localStorage.getItem('user')
+    const data = {
+    	"panNumber": this.panNumber,
+      "userName": username,
+      "bankDetails": this.bankDetails
+    };
+    this.commonServices.postKYC(data).subscribe(
+      res => {
+        if (res.status === 'sucesss') {
+          this.verifiedSuccessfully = true;
+          this.isPanverified = res.isPanverified;
+          this.isAdharVerified = res.isAdharVerified;
+          this.isBankDetailsVerified = res.isBankDetailsVerified;
+          this.messageService.clear();
+          this.messageService.add({severity:'success', summary:'Success', detail:'Updated Successfull'});
+          // this.router.navigate(['/account']);
+        }else{
+          this.messageService.add({severity:'error', summary:'Error', detail:'Failed to Update'});
+        }
+      },
+      _err => {
+        this.messageService.add({severity:'error', summary:'Error', detail:'Failed to Update'});
+        // console.log(err);
+        // this.message = "User Name does not exist";
+        // this.CommonServices.showError('User Name does not exists', 'Not Found');
+      }
+    );
   }
 }

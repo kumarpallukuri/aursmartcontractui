@@ -8,20 +8,20 @@
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Adhar Number:</label>
                     <div class="p-col-8">
-                    <input type="number" pInputText class="form-control" formControlName="adharNumer">
-                    <!-- ngClass]="{ 'is-invalid': submitted && f.panNUmber.errors }">
-                    <div *ngIf="submitted && f.panNUmber.errors" class="invalid-feedback pl-1">
-                        <div *ngIf="f.panNUmber.errors.required">PAN Number required</div>
-                    </div>  -->
+                    <input type="number" pInputText class="form-control" formControlName="adharNumber">
                     </div>
                 </div>
             </div>
         </form>
     </ng-template>
     <ng-template pTemplate="footer">
-        <div class="p-grid row p-nogutter p-justify-between" style="width: 84%;">
-                <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left" class="pr-2"></p-button>
-              <p-button label="Next" (onClick)="nextPage(true)" icon="pi pi-angle-right" iconPos="right"></p-button>     
+            <div class="p-grid">
+                <div class="p-col-6">
+                    <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left" class="pr-2"></p-button>
+                </div>
+                <div class="p-col-6">
+                    <p-button label="Next" (onClick)="nextPage(true)" icon="pi pi-angle-right" iconPos="right"></p-button> 
+                </div>
         </div>
     </ng-template>
 </p-card>

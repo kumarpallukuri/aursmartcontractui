@@ -40,7 +40,7 @@
                             <div class="p-col-6 row">
                                 <label class="p-col-3 col-form-label">PAN Number:</label>
                                 <div class="p-col-8">
-                                <input type="number" pInputText class="form-control" formControlName="panNUmber">
+                                <input type="text" pInputText class="form-control" formControlName="panNUmber">
                                 <!-- ngClass]="{ 'is-invalid': submitted && f.panNUmber.errors }">
                                 <div *ngIf="submitted && f.panNUmber.errors" class="invalid-feedback pl-1">
                                     <div *ngIf="f.panNUmber.errors.required">PAN Number required</div>
@@ -60,12 +60,57 @@
             </p-card>
         </div>
         <div *ngIf="showAdharStep2">
-            <app-adhar (activeIndexChanged)="stepperChanged($event)"></app-adhar>
+            <app-adhar [panNumber]="panNumber" (activeIndexChanged)="stepperChanged($event)" (getAdharDetails) = "getAdharDetails($event)"></app-adhar>
         </div>
         <div *ngIf="showAdharStep3">
-        <app-bank-details (activeIndexChanged)="stepperChanged($event)"></app-bank-details>
+        <app-bank-details (activeIndexChanged)="stepperChanged($event)" (getBankDetails) ="getBankDetails($event)"></app-bank-details>
         </div>
-
+        <div *ngIf="verifiedSuccessfully">
+            <p-card>
+                <ng-template pTemplate="content">
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-1 col-form-label"><b>PAN:</b></label>
+                            <div *ngIf="isPanverified" class="p-col-6">
+                                <label class="p-col-2 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isPanverified" class="p-col-6">
+                                <label class="p-col-2 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-1 col-form-label"><b>Adhar:</b></label>
+                            <div *ngIf="isAdharVerified" class="p-col-6">
+                                <label class="p-col-2 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isAdharVerified" class="p-col-6">
+                                <label class="p-col-2 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-1 col-form-label"><b>Bank Details:</b></label>
+                            <div *ngIf="isBankDetailsVerified" class="p-col-6">
+                                <label class="p-col-2 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isBankDetailsVerified" class="p-col-6">
+                                <label class="p-col-2 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                </p-card>
+            </div>
       </div>
     </div>
 </div>
+<p-toast></p-toast>

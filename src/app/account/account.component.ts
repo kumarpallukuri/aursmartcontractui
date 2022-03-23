@@ -13,6 +13,7 @@ export class AccountComponent implements OnInit {
   loanType:any=[];
   bankNames:any=[];
   banksByLoanType:boolean=false;
+  
   constructor(private router: Router,
     private commonServices: CommonServices,
     private messageService: MessageService,

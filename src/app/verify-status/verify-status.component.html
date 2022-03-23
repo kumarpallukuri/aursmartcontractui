@@ -1,0 +1,65 @@
+<div class="col-md-12 background">
+    <div class="row" style="height: 100%">
+      <div class="col-md-2 side-bg-clr">
+        <img class="dashboard-logo" src="assets\aurigraphLogo.jpg" />
+        <div class="border-divide"></div>
+        <ul class="list-unstyled list-postition">
+          <li class="mt-3">
+            <a class="font-clr" routerLinkActive="dashboard-active" [routerLinkActiveOptions]="{exact: true}"
+              [routerLink]="['/admin']">
+              <b>&nbsp; Admin</b></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-10 content-extend mt-3">
+        <h4 class="font-bold mt-30 ml-4 mr-30" style="position: absolute;"><b> Verify Status</b></h4>
+        <app-header style="margin-left: auto; float: right;"></app-header>
+        <div class="p-col-12 pt-0 pb-0 ml-4 pr-4">
+            <p-divider></p-divider>
+          </div>
+            <p-card>
+                <ng-template pTemplate="content">
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-2 col-form-label"><b>PAN:</b></label>
+                            <div *ngIf="isPanverified" class="p-col-6">
+                                <label class="p-col-2 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isPanverified" class="p-col-6">
+                                <label class="p-col-3 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-2 col-form-label"><b>Adhar:</b></label>
+                            <div *ngIf="isAdharVerified" class="p-col-6">
+                                <label class="p-col-3 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isAdharVerified" class="p-col-6">
+                                <label class="p-col-3 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-field">
+                        <div class="p-col-12 row">
+                            <label class="p-col-2 col-form-label"><b>Bank Details:</b></label>
+                            <div *ngIf="isBankDetailsVerified" class="p-col-6">
+                                <label class="p-col-3 col-form-label">Verified</label>
+                                <img src="assets/verified.jpg" style="width: 5%;"/>
+                            </div>
+                            <div *ngIf="!isBankDetailsVerified" class="p-col-6">
+                                <label class="p-col-3 col-form-label"> Not Verified</label>
+                                <img src="assets/cross.png" style="width: 5%;"/>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                </p-card>
+      </div>
+    </div>
+</div>

@@ -46,7 +46,6 @@ export class SignupComponent implements OnInit {
     if (this.form.invalid) {
       return;
   }
-  debugger
     const data = {
       userName: this.f.username.value,
       adharCardNumber: this.f.adharNumber.value
@@ -54,7 +53,6 @@ export class SignupComponent implements OnInit {
     };
     this.commonServices.signup(data).subscribe(
       res => {
-        debugger
         if (res.status === 'success') {
           this.registerId= res.id;
           this.signupModule = false;
