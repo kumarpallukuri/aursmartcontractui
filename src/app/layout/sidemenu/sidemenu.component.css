@@ -1,0 +1,23 @@
+.font-clr{
+    color: gray;
+    font-size: 20px;
+    font-family: 'Axiforma-Bold';
+  }
+  .dashboard-active{color:#002343!important}
+  .list-postition{
+    /* position: fixed; */
+    margin-top: 10%;
+    padding-left: 15px;
+  }
+  .dashboard-logo{
+    /* position: fixed; */
+    margin-top: -45px;
+    margin-left: -35px;
+  }
+  .border-divide{
+    border-block-end: 1px solid darkgray;
+      height: 25px;
+      margin-right: 15px;
+      margin-left: 15px;
+      margin-top: -20px
+  }

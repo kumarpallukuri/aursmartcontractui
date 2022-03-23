@@ -1,0 +1,28 @@
+<div class="container login-container">
+    <p-card>
+        <ng-template pTemplate="header">
+        <h2 class="p-2 ml-2">Verify OTP</h2>
+        <!-- <div class="row ml-3">
+        <p class="pr-2"><b>New user?</b></p>
+        </div> -->
+        </ng-template>
+        <ng-template pTemplate="content">
+        <form [formGroup]="form" class="mt-0" (ngSubmit)="onSubmit()">
+            <div class="grid p-fluid">
+                <div class="col-12 md:col-4 p-0">
+                    <div class="p-inputgroup">
+                        <input type="number" pInputText placeholder="Enter OTP" class="form-control" formControlName="verifyOTP"
+                        [ngClass]="{ 'is-invalid': submitted && f.verifyOTP.errors }">
+                        <div *ngIf="submitted && f.verifyOTP.errors" class="invalid-feedback pl-1">
+                            <div *ngIf="f.verifyOTP.errors.required">OTP is required</div>
+                        </div>        
+                    </div>
+                </div>
+                <div class="mt-1"><a href="">Resend</a></div>
+                    <p-button class="col-12 md:col-4 p-0 pt-4" label="Verify OTP" type="submit"></p-button>
+            </div>
+        </form>
+        </ng-template>
+    </p-card>
+    </div>
+    <p-toast></p-toast>

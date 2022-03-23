@@ -1,0 +1,71 @@
+<div class="col-md-12 background">
+    <div class="row" style="height: 100%">
+      <div class="col-md-2 side-bg-clr">
+        <app-sidemenu></app-sidemenu>
+      </div>
+      <div class="col-md-10 content-extend">
+        <!-- <p-card styleClass="acc-card" >
+            <ng-template pTemplate="header">
+            <div class="p-grid p-jc-end">
+                <h4 class="font-bold mt-30 ml-1 mr-30"><b> Dahoboard</b></h4>
+                <app-header style="margin-left: auto;"></app-header>
+            </div>
+        </ng-template>
+    </p-card> -->
+    <h4 class="font-bold mt-30 ml-4 mr-30" style="position: absolute;"><b> KYC</b></h4>
+    <app-header style="margin-left: auto; float: right;"></app-header>
+    <div class="p-col-12 pt-0 pb-0 ml-4 pr-4">
+        <p-divider></p-divider>
+      </div>
+<!-- <div class="row">
+    <div class="p-grid"></div>
+</div> -->
+            <div class="p-d-flex p-flex-column" style="max-width: 98% !important;">
+                <div class="p-grid">
+                <div class="p-col-10">
+                    <p-steps #stepper [model]="items" styleClass="steps-visitor" [(activeIndex)]="activeIndex" [readonly]="false"
+                    (activeIndexChange)="stepperChanged($event)">
+                    </p-steps>
+                </div>
+                </div>
+            </div>
+<div *ngIf="showPanStep1">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <h5 class="pt-4 pl-4">Verify KYC Details - PAN Number</h5>
+                </ng-template>
+                <ng-template pTemplate="content">
+                    <form [formGroup]="form" class="ml-4">
+                        <div class="p-grid p-field">
+                            <div class="p-col-6 row">
+                                <label class="p-col-3 col-form-label">PAN Number:</label>
+                                <div class="p-col-8">
+                                <input type="number" pInputText class="form-control" formControlName="panNUmber">
+                                <!-- ngClass]="{ 'is-invalid': submitted && f.panNUmber.errors }">
+                                <div *ngIf="submitted && f.panNUmber.errors" class="invalid-feedback pl-1">
+                                    <div *ngIf="f.panNUmber.errors.required">PAN Number required</div>
+                                </div>  -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="p-grid row p-nogutter p-justify-end" style="width: 90%;">
+                        <div>
+                          <p-button label="Next" (onClick)="nextPage(true)" icon="pi pi-angle-right" iconPos="right"></p-button>     
+                        </div>
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+        <div *ngIf="showAdharStep2">
+            <app-adhar (activeIndexChanged)="stepperChanged($event)"></app-adhar>
+        </div>
+        <div *ngIf="showAdharStep3">
+        <app-bank-details (activeIndexChanged)="stepperChanged($event)"></app-bank-details>
+        </div>
+
+      </div>
+    </div>
+</div>

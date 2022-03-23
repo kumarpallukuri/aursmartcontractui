@@ -1,0 +1,8 @@
+.login-container {
+    max-width: 30% !important;
+    margin-top: 5%;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

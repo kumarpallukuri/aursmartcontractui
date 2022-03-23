@@ -1,0 +1,42 @@
+<div class="container login-container">
+<p-card>
+    <ng-template pTemplate="header">
+    <h2 class="p-2 ml-2">Sign In</h2>
+    <div class="row ml-3">
+    <p class="pr-2"><b>New user?</b></p>
+    <p><a href="" [routerLink]="['/signup']">Create an account</a></p>
+    </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+    <form [formGroup]="form" class="mt-0" (ngSubmit)="onSubmit()">
+        <div class="grid p-fluid">
+            <label>UserName</label>
+            <div class="col-12 md:col-4 p-0">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText placeholder="Username" class="form-control" formControlName="username"
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback pl-1">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>        
+                </div>
+            </div>
+
+            <label class="pt-2">Password</label>
+            <div class="col-12 md:col-4 p-0">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                    <input type="password" placeholder="Password" class="form-control" formControlName="password"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback pl-1">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+            </div>
+                <p-button class="col-12 md:col-4 p-0 pt-4" label="Sign In" type="submit"></p-button>
+        </div>
+    </form>
+    </ng-template>
+</p-card>
+</div>
+<p-toast></p-toast>
