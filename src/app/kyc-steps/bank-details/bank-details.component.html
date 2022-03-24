@@ -8,13 +8,13 @@
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Name:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="name">
+                    <input type="text" pInputText class="form-control" formControlName="name">
                     </div>
                 </div>
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Email:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="email">
+                    <input type="text" pInputText class="form-control" formControlName="email">
                     </div>
                 </div>
             </div>
@@ -23,13 +23,13 @@
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Mobile Number:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="mobileNumber">
+                    <input type="text" pInputText class="form-control" formControlName="mobileNumber">
                     </div>
                 </div>
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Acount Number:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="accountNumber">
+                    <input type="text" pInputText class="form-control" formControlName="accountNumber">
                     </div>
                 </div>
             </div>
@@ -38,22 +38,26 @@
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">Account type:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="accountType">
+                    <input type="text" pInputText class="form-control" formControlName="accountType">
                     </div>
                 </div>
                 <div class="p-col-6 row">
                     <label class="p-col-3 col-form-label">IFSC Code:</label>
                     <div class="p-col-6">
-                    <input type="number" pInputText class="form-control" formControlName="ifsc_Code">
+                    <input type="text" pInputText class="form-control" formControlName="ifsc_Code">
                     </div>
                 </div>
             </div>
         </form>
     </ng-template>
     <ng-template pTemplate="footer">
-        <div class="p-grid row p-nogutter p-justify-between" style="width: 84%;">
+        <div class="p-grid">
+            <div class="p-col-6">
                 <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left" class="pr-2"></p-button>
-              <p-button label="Next" (onClick)="nextPage(true)" icon="pi pi-angle-right" iconPos="right"></p-button>     
-        </div>
+            </div>
+            <div class="p-col-6">
+                <p-button label="Save" (onClick)="nextPage(true)" icon="pi pi-angle-right" iconPos="right"></p-button>     
+            </div>
+    </div>
     </ng-template>
 </p-card>

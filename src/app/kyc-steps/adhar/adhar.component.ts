@@ -20,6 +20,10 @@ import {
 export class AdharComponent implements OnInit {
   form: FormGroup;
   @Output() activeIndexChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Output() getAdharDetails: EventEmitter<number> = new EventEmitter<number>();
+  @Input() panNumber;
+  adhardetails:any;
+
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -30,7 +34,7 @@ export class AdharComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.form = this.fb.group({
-      adharNumer: ['', Validators.required]
+      adharNumber: ['', Validators.required]
       });
   }
   get f() { return this.form.controls; }
@@ -40,7 +44,9 @@ export class AdharComponent implements OnInit {
   }
 
     nextPage(stepNext: boolean) {
+      this.adhardetails = this.f.adharNumber.value;
     if(stepNext) {
+      this.getAdharDetails.emit(this.adhardetails)
       this.activeIndexChanged.emit(2);
     }
   }

@@ -10,7 +10,7 @@ import {ToastModule} from 'primeng/toast';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {SidebarModule} from 'primeng/sidebar';
 import {StepsModule} from 'primeng/steps';
-
+import {TableModule} from 'primeng/table';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +26,8 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {DividerModule} from 'primeng/divider';
 import { KycComponent } from './kyc-steps/kyc/kyc.component';
 import { AdharComponent } from './kyc-steps/adhar/adhar.component';
+import { AdminComponent } from './admin/admin.component';
+import { VerifyStatusComponent } from './verify-status/verify-status.component';
 import { BankDetailsComponent } from './kyc-steps/bank-details/bank-details.component';
 
 
@@ -41,9 +43,12 @@ import { BankDetailsComponent } from './kyc-steps/bank-details/bank-details.comp
     AccountComponent,
     KycComponent,
     AdharComponent,
-    BankDetailsComponent
+    BankDetailsComponent,
+    AdminComponent,
+    VerifyStatusComponent
   ],
   imports: [
+    TableModule,
     CardModule,
     ButtonModule,
     ToastModule,

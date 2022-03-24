@@ -20,6 +20,8 @@ import {
 export class BankDetailsComponent implements OnInit {
   form: FormGroup;
   @Output() activeIndexChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Output() getBankDetails: EventEmitter<any> = new EventEmitter<any>();
+  bankInfo: any={}
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -45,7 +47,16 @@ export class BankDetailsComponent implements OnInit {
   }
 
   nextPage(stepNext: boolean) {
+    this.bankInfo = {
+      'name' : this.f.name.value,
+      'email' : this.f.email.value,
+      'mobile_number' : this.f.mobileNumber.value,
+      'account_number' : this.f.accountType.value,
+      'ifsc_code' : this.f.ifsc_Code.value,
+    }
+
   if(stepNext) {
+    this.getBankDetails.emit(this.bankInfo)
     this.activeIndexChanged.emit(3);
   }
   }
